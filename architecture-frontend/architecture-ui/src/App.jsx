@@ -4,10 +4,11 @@ import cloudIcon from './assets/cloud-architecture.svg'
 function App() {
   const [appType, setAppType] = useState('HighAvailability')
   const [architecture, setArchitecture] = useState(null)
-
+  const API_URL = import.meta.env.VITE_API_URL;
+  
   const getRecommendation = async () => {
     const response = await fetch(
-      `http://localhost:8080/getarhitecture?appType=${appType}`
+       `${API_URL}/getarhitecture?appType=${appType}`
     )
 
     const data = await response.json()
